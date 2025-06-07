@@ -1,47 +1,47 @@
-# Mini Linguagem de Programação: Objetivos e Público-Alvo
+# Mini Programming Language: Goals and Target Audience
 
-## Objetivo Geral
+## General Objective
 
-Desenvolver uma mini linguagem de programação que seja simples de aprender e usar, mas que ainda assim incorpore conceitos fundamentais de linguagens de programação modernas.
+Develop a mini programming language that is simple to learn and use, while still incorporating fundamental concepts from modern programming languages.
 
-## Público-Alvo
+## Target Audience
 
-- Estudantes iniciantes em programação
-- Pessoas interessadas em entender os conceitos básicos de linguagens de programação
-- Professores que desejam demonstrar conceitos fundamentais de linguagens de programação
+- Programming beginners
+- People interested in understanding basic programming language concepts
+- Teachers who want to demonstrate fundamental programming language concepts
 
-## Objetivos Específicos
+## Specific Objectives
 
-1. **Simplicidade**: A linguagem deve ser fácil de aprender e usar, com uma sintaxe clara e intuitiva.
-2. **Conceitos Fundamentais**: Incorporar conceitos essenciais como:
-   - Variáveis e tipos de dados básicos
-   - Estruturas de controle (if/else, loops)
-   - Funções e procedimentos
-   - Operações aritméticas e lógicas
-   - Manipulação de strings e listas
+1. **Simplicity**: The language should be easy to learn and use, with clear and intuitive syntax.
+2. **Fundamental Concepts**: Incorporate essential concepts such as:
+   - Variables and basic data types
+   - Control structures (if/else, loops)
+   - Functions and procedures
+   - Arithmetic and logical operations
+   - String and list manipulation
 
-3. **Aplicabilidade**: A linguagem será focada em:
-   - Cálculos matemáticos básicos
-   - Manipulação de listas e strings
-   - Resolução de problemas simples do dia a dia
+3. **Applicability**: The language will focus on:
+   - Basic mathematical calculations
+   - List and string manipulation
+   - Solving simple everyday problems
 
-4. **Educacional**: Servir como ferramenta educacional para:
-   - Demonstrar conceitos de compilação/interpretação
-   - Mostrar como linguagens de programação funcionam internamente
-   - Facilitar o aprendizado de conceitos fundamentais de programação
+4. **Educational**: Serve as an educational tool to:
+   - Demonstrate compilation/interpretation concepts
+   - Show how programming languages work internally
+   - Facilitate learning of fundamental programming concepts
 
-## Casos de Uso
+## Use Cases
 
-A linguagem será particularmente útil para:
+The language will be particularly useful for:
 
-- Resolver problemas matemáticos simples
-- Manipular e processar listas de dados
-- Criar pequenos scripts para automação de tarefas básicas
-- Demonstrar conceitos de programação em ambiente controlado
+- Solving simple mathematical problems
+- Manipulating and processing data lists
+- Creating small scripts for basic task automation
+- Demonstrating programming concepts in a controlled environment
 
-## Benefícios
+## Benefits
 
-- Curva de aprendizado suave
-- Foco em conceitos fundamentais
-- Ambiente ideal para experimentação e aprendizado
-- Base sólida para transição para linguagens mais complexas 
+- Smooth learning curve
+- Focus on fundamental concepts
+- Ideal environment for experimentation and learning
+- Solid foundation for transitioning to more complex languages

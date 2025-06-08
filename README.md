@@ -1,47 +1,107 @@
-# Mini Programming Language: Goals and Target Audience
+# Mini Language Interpreter
 
-## General Objective
+A simple interpreter for a custom programming language, implemented in Python. This project serves as an educational tool to illustrate the core concepts of language design and interpreter construction.
 
-Develop a mini programming language that is simple to learn and use, while still incorporating fundamental concepts from modern programming languages.
+## ✨ Features
 
-## Target Audience
+- **Arithmetic operations:** `+`, `-`, `*`, `/`
+- **Variable assignments:** Standard and compound (`=`, `+=`, `-=`, `*=`, `/=`)
+- **Control flow:** `if` statements, `while` loops
+- **Functions:** Definition and invocation with parameters and return values
+- **Data types:** 
+    - Numbers (integers, floats)
+    - Strings
+    - Lists
+- **Scope:** Local and global variable management
+- **Error handling:** Informative runtime and syntax errors
 
-- Programming beginners
-- People interested in understanding basic programming language concepts
-- Teachers who want to demonstrate fundamental programming language concepts
+## 🚀 Installation
 
-## Specific Objectives
+1. **Clone the repository:**
+     ```bash
+     git clone <repository-url>
+     cd Mini-language
+     ```
+2. **Create a virtual environment:**
+     ```bash
+     python -m venv venv
+     source venv/bin/activate  # On Windows: venv\Scripts\activate
+     ```
+3. **Install dependencies:**
+     ```bash
+     pip install -r requirements.txt
+     ```
 
-1. **Simplicity**: The language should be easy to learn and use, with clear and intuitive syntax.
-2. **Fundamental Concepts**: Incorporate essential concepts such as:
-   - Variables and basic data types
-   - Control structures (if/else, loops)
-   - Functions and procedures
-   - Arithmetic and logical operations
-   - String and list manipulation
+## 🛠️ Usage
 
-3. **Applicability**: The language will focus on:
-   - Basic mathematical calculations
-   - List and string manipulation
-   - Solving simple everyday problems
+You can use the interpreter in two ways:
 
-4. **Educational**: Serve as an educational tool to:
-   - Demonstrate compilation/interpretation concepts
-   - Show how programming languages work internally
-   - Facilitate learning of fundamental programming concepts
+### 1. Interactive Mode (Python API)
 
-## Use Cases
+```python
+from interpreter import Interpreter
+from parser import Parser
 
-The language will be particularly useful for:
+interpreter = Interpreter()
+parser = Parser()
 
-- Solving simple mathematical problems
-- Manipulating and processing data lists
-- Creating small scripts for basic task automation
-- Demonstrating programming concepts in a controlled environment
+code = """
+x = 5
+y = 10
+z = x + y
+"""
 
-## Benefits
+ast = parser.parse(code)
+result = interpreter.interpret(ast)
+print(result)
+```
 
-- Smooth learning curve
-- Focus on fundamental concepts
-- Ideal environment for experimentation and learning
-- Solid foundation for transitioning to more complex languages
+### 2. Command Line
+
+```bash
+python interpreter.py
+```
+You can then enter code interactively or run scripts.
+
+## 📄 Example Code
+
+```python
+# Arithmetic
+x = 5
+y = 10
+z = x + y
+
+# If statement
+if x > 3:
+        y = 20
+else:
+        y = 30
+
+# While loop
+i = 0
+while i < 5:
+        i += 1
+
+# Function definition and call
+def add(a, b):
+        return a + b
+
+result = add(5, 3)
+```
+
+## 📁 Project Structure
+
+- `lexer.py` — Lexical analysis (tokenization) using Lark
+- `parser.py` — Syntax analysis and AST generation
+- `interpreter.py` — AST execution logic
+- `requirements.txt` — Python dependencies
+- `examples/` — Example programs
+- `tests/` — Unit tests
+
+## 🤝 Contributing
+
+Contributions are welcome! Please open issues or submit pull requests for improvements and new features.
+
+---
+
+**License:** MIT (see `LICENSE` file for details)

@@ -1,107 +1,109 @@
-# Mini Language Interpreter
+# Objectives and Target Audience of the Mini Language: MathScript
 
-A simple interpreter for a custom programming language, implemented in Python. This project serves as an educational tool to illustrate the core concepts of language design and interpreter construction.
+## 1. Language Objectives
 
-## ✨ Features
+### Main Objective
 
-- **Arithmetic operations:** `+`, `-`, `*`, `/`
-- **Variable assignments:** Standard and compound (`=`, `+=`, `-=`, `*=`, `/=`)
-- **Control flow:** `if` statements, `while` loops
-- **Functions:** Definition and invocation with parameters and return values
-- **Data types:** 
-    - Numbers (integers, floats)
-    - Strings
-    - Lists
-- **Scope:** Local and global variable management
-- **Error handling:** Informative runtime and syntax errors
+To create a simple and intuitive programming language focused on **mathematical calculations** and **numerical data manipulation**, designed to facilitate complex mathematical operations in a clear and concise way.
 
-## 🚀 Installation
+### Specific Objectives
 
-1. **Clone the repository:**
-     ```bash
-     git clone <repository-url>
-     cd Mini-language
-     ```
-2. **Create a virtual environment:**
-     ```bash
-     python -m venv venv
-     source venv/bin/activate  # On Windows: venv\Scripts\activate
-     ```
-3. **Install dependencies:**
-     ```bash
-     pip install -r requirements.txt
-     ```
+- **Simplicity**: Clean and easy-to-learn syntax
+- **Mathematical efficiency**: Optimized and precise mathematical operations
+- **Flexibility**: Support for different numeric types and data structures
+- **Readability**: Self-explanatory and easily maintainable code
 
-## 🛠️ Usage
+## 2. Target Audience
 
-You can use the interpreter in two ways:
+### Primary
 
-### 1. Interactive Mode (Python API)
+- **Mathematics and engineering students**: For solving academic problems
+- **Researchers**: For rapid prototyping of mathematical algorithms
+- **Data analysts**: For basic statistical calculations
 
-```python
-from interpreter import Interpreter
-from parser import Parser
+### Secondary
 
-interpreter = Interpreter()
-parser = Parser()
+- **Programming beginners**: As a first programming language
+- **Educators**: To teach programming and mathematical concepts
 
-code = """
-x = 5
-y = 10
-z = x + y
-"""
+## 3. Application Domain
 
-ast = parser.parse(code)
-result = interpreter.interpret(ast)
-print(result)
+### Main Uses
+
+- **Mathematical calculations**: Algebra, trigonometry, calculus
+- **Matrix operations**: Multiplication, inversion, determinants
+- **Basic statistics**: Mean, median, standard deviation
+- **Numerical analysis**: Interpolation, numerical integration
+- **Vector manipulation**: Basic vector operations
+
+### Usage Examples
+
+```mathscript
+# Calculate the area of a circle
+radius = 5.0
+area = pi * radius^2
+print("Area of the circle:", area)
+
+# Vector operations
+vector1 = [1, 2, 3]
+vector2 = [4, 5, 6]
+dot_product = dot(vector1, vector2)
+print("Dot product:", dot_product)
+
+# Mathematical function
+def f(x):
+    return x^2 + 2*x + 1
+
+result = f(3)
+print("f(3) =", result)
 ```
 
-### 2. Command Line
+## 4. Main Features
 
-```bash
-python interpreter.py
-```
-You can then enter code interactively or run scripts.
+### Supported Data Types
 
-## 📄 Example Code
+- **Numbers**: Integers, decimals, complex numbers
+- **Vectors**: One-dimensional arrays
+- **Matrices**: Two-dimensional arrays
+- **Strings**: For displaying results
 
-```python
-# Arithmetic
-x = 5
-y = 10
-z = x + y
+### Mathematical Operations
 
-# If statement
-if x > 3:
-        y = 20
-else:
-        y = 30
+- Basic operations: `+`, `-`, `*`, `/`, `^` (power)
+- Trigonometric functions: `sin`, `cos`, `tan`
+- Logarithmic functions: `log`, `ln`
+- Mathematical constants: `pi`, `e`
 
-# While loop
-i = 0
-while i < 5:
-        i += 1
+### Control Structures
 
-# Function definition and call
-def add(a, b):
-        return a + b
+- Conditionals: `if`, `else`
+- Loops: `for`, `while`
+- User-defined functions
 
-result = add(5, 3)
-```
+## 5. Advantages of MathScript
 
-## 📁 Project Structure
+1. **Specific focus**: Optimized for mathematical calculations
+2. **Natural syntax**: Close to traditional mathematical notation
+3. **Smart typing**: Automatic conversions between numeric types
+4. **Integrated library**: Essential mathematical functions pre-defined
+5. **Ease of use**: Ideal for rapid prototyping
 
-- `lexer.py` — Lexical analysis (tokenization) using Lark
-- `parser.py` — Syntax analysis and AST generation
-- `interpreter.py` — AST execution logic
-- `requirements.txt` — Python dependencies
-- `examples/` — Example programs
-- `tests/` — Unit tests
+## 6. Intended Limitations
 
-## 🤝 Contributing
+- **Not a general-purpose language**: Focused only on mathematics
+- **No advanced features**: Does not support object-oriented programming
+- **Limited library**: Only essential mathematical functions
+- **No file manipulation**: Focus on in-memory calculations
 
-Contributions are welcome! Please open issues or submit pull requests for improvements and new features.
+## 7. Comparison with Other Languages
 
----
+| Aspect                | MathScript | Python   | MATLAB  |
+|-----------------------|------------|----------|---------|
+| Learning curve        | Low        | Medium   | High    |
+| Mathematical focus    | High       | Medium   | High    |
+| Simplicity            | High       | Medium   | Low     |
+| Cost                  | Free       | Free     | Paid    |
 
-**License:** MIT (see `LICENSE` file for details)
+## Conclusion
+
+MathScript is designed to be a simple, efficient, and math-focused language, bridging the gap between simple calculators and complex programming languages. Its goal is to democratize mathematical computing, making it accessible to students and researchers who need a fast and reliable tool for their calculations.

@@ -38,11 +38,12 @@ class MiniLangLexer:
         "TIMES",  # Multiplication operator (*)
         "DIVIDE",  # Division operator (/)
         "MODULO",  # Modulo operator (%)
+        "POWER",  # Exponentiation operator (**)
         "ASSIGN",  # Assignment operator (=)
         "PLUS_ASSIGN",  # Compound assignment (+=)
         "MINUS_ASSIGN",  # Compound assignment (-=)
         "TIMES_ASSIGN",  # Compound assignment (*=)
-        "POWER_ASSIGN"  # Compound assignment (**=)
+        "POWER_ASSIGN",  # Compound assignment (**=)
         "DIVIDE_ASSIGN",  # Compound assignment (/=)
         "EQ",  # Equality operator (==)
         "NE",  # Not equal operator (!=)
@@ -102,6 +103,7 @@ class MiniLangLexer:
     t_PLUS_ASSIGN = r"\+="
     t_MINUS_ASSIGN = r"-="
     t_TIMES_ASSIGN = r"\*="
+    t_POWER_ASSIGN = r"\*\*="
     t_DIVIDE_ASSIGN = r"/="
     t_EQ = r"=="
     t_NE = r"!="
@@ -263,7 +265,8 @@ class MiniLangParser:
         | IDENTIFIER PLUS_ASSIGN expression NEWLINE
         | IDENTIFIER MINUS_ASSIGN expression NEWLINE
         | IDENTIFIER TIMES_ASSIGN expression NEWLINE
-        | IDENTIFIER DIVIDE_ASSIGN expression NEWLINE"""
+        | IDENTIFIER DIVIDE_ASSIGN expression NEWLINE
+        | IDENTIFIER POWER_ASSIGN expression NEWLINE"""
         var_name = p[1]
         operator = p[2]
         value = self.evaluate(p[3])
@@ -367,6 +370,7 @@ class MiniLangParser:
         """expression : expression PLUS expression
         | expression MINUS expression
         | expression TIMES expression
+        | expression POWER expression
         | expression DIVIDE expression
         | expression MODULO expression
         | expression EQ expression
@@ -474,7 +478,7 @@ class MiniLangParser:
                 else:
                     raise TypeError("len() only works with lists and strings")
 
-            elif op in ["+", "-", "*", "/", "%"]:
+            elif op in ["+", "-", "*", "**", "/", "%"]:
                 left = self.evaluate(node[1])
                 right = self.evaluate(node[2])
                 return self.apply_arithmetic(op, left, right)
@@ -512,6 +516,8 @@ class MiniLangParser:
             return left - right
         elif op == "*":
             return left * right
+        elif op == "**":
+            return left**right
         elif op == "/":
             if right == 0:
                 raise ZeroDivisionError("Division by zero")
@@ -656,6 +662,7 @@ MiniLang - Available Commands:
 VARIABLES:
   x = 10              # Simple assignment
   x += 5              # Compound assignment
+  x **= 2             # Power assignment
   
 DATA TYPES:
   42                  # Integer
@@ -666,6 +673,7 @@ DATA TYPES:
 
 OPERATIONS:
   +, -, *, /, %       # Arithmetic
+  **                  # Exponentiation
   ==, !=, <, <=, >, >= # Comparison
   and, or, not        # Logical
 
@@ -690,6 +698,11 @@ FUNCTIONS:
 BUILT-INS:
   print(value)        # Prints value
   len(list)          # Size of list/string
+
+EXAMPLES:
+  2 ** 3              # Returns 8
+  x = 5
+  x **= 2             # x becomes 25
 """
     print(help_text)
 

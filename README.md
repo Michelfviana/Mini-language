@@ -6,22 +6,65 @@
 
 ### Prerequisites
 
-```bash
+Make sure you have Python 3.6+ installed on your system and install the required PLY library.
+
+### Platform-Specific Installation
+
+**Windows:**
+
+```cmd
 pip install ply
 ```
 
-### How to use
+**macOS:**
+
+```bash
+pip3 install ply
+# or if using Homebrew Python
+pip install ply
+```
+
+**Linux (Ubuntu/Debian):**
+
+```bash
+# Using system Python
+sudo apt update
+sudo apt install python3-pip
+pip3 install ply
+
+# Or using package manager
+sudo apt install python3-ply
+```
+
+**Linux (Fedora/RHEL):**
+
+```bash
+sudo dnf install python3-pip
+pip3 install ply
+```
+
+**Linux (Arch/Manjaro):**
+
+```bash
+sudo pacman -S python-pip
+pip install ply
+
+# Or using AUR package manager
+yay -S python-ply
+```
+
+### How to Use
 
 **Interactive Mode (REPL):**
 
 ```bash
-python minilang.py
+python3 minilang.py
 ```
 
-**Run file:**
+**Run File:**
 
 ```bash
-python minilang.py example.ml
+python3 minilang.py example.ml
 ```
 
 ### REPL Usage Examples
@@ -471,9 +514,10 @@ print(calculator(10, 0, "/"))   # Error: division by zero
 ### Example 2: List Processing
 
 ```python
-def even_numbers(limit):
+def process_numbers(limit):
+    numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
     evens = []
-    for i in [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]:
+    for i in numbers:
         if i <= limit:
             if i % 2 == 0:
                 evens += [i]
@@ -485,7 +529,7 @@ def sum_list(list):
         total += num
     return total
 
-result = even_numbers(8)
+result = process_numbers(8)
 print("Evens up to 8:", result)        # [2, 4, 6, 8]
 print("Sum:", sum_list(result))        # 20
 ```
@@ -505,28 +549,33 @@ def factorial(n):
         return result
 
 def fibonacci(n):
-    if n <= 1:
-        return n
+    if n <= 0:
+        return 0
     else:
-        a = 0
-        b = 1
-        counter = 2
-        while counter <= n:
-            temp = a + b
-            a = b
-            b = temp
-            counter += 1
-        return b
+        if n == 1:
+            return 1
+        else:
+            a = 0
+            b = 1
+            counter = 2
+            while counter <= n:
+                temp = a + b
+                a = b
+                b = temp
+                counter += 1
+            return b
 
 def power_table(base, max_exp):
-    for i in [1, 2, 3, 4, 5]:
+    exponents = [1, 2, 3, 4, 5]
+    for i in exponents:
         if i <= max_exp:
-            print(base, "^", i, "=", base ** i)
+            result = base ** i
+            print("Power calculation:", base, "^", i, "=", result)
 
 print("Factorial of 5:", factorial(5))    # 120
 print("Fibonacci 10:", fibonacci(10))     # 55
 print("Power table for base 2:")
-power_table(2, 4)  # 2^1=2, 2^2=4, 2^3=8, 2^4=16
+power_table(2, 4)  # Shows: 2^1=2, 2^2=4, 2^3=8, 2^4=16
 ```
 
 ## Interpreter Architecture
@@ -544,7 +593,7 @@ power_table(2, 4)  # 2^1=2, 2^2=4, 2^3=8, 2^4=16
 
 #### 2. MiniLangParser
 
-- **27+ production rules** in grammar
+- **Grammar rules** for language constructs
 - **Operator precedence** explicitly defined
 - **Interpreted execution** during parsing (tree-walking interpreter)
 - **Error handling** with `p_error` and informative messages
@@ -566,10 +615,10 @@ power_table(2, 4)  # 2^1=2, 2^2=4, 2^3=8, 2^4=16
 
 ### Execution Flow
 
-```
+```text
 Source Code → Tokenization (PLY) → Parsing (PLY) → Direct Execution
                      ↓                    ↓              ↓
-                  Tokens            Implicit AST    Evaluation
+                  Tokens            Grammar Rules    Evaluation
                                                         ↓
                                                  Result/Effect
 ```
@@ -668,7 +717,7 @@ Result: 25
 **I/O and System:**
 
 - No file operations
-- No user input()
+- Limited user input capabilities
 - No operating system access
 
 ### Possible Extensions
